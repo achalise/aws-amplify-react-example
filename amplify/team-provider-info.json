@@ -1,0 +1,36 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-aws-amplify-react-dev-130719-authRole",
+            "UnauthRoleArn": "arn:aws:iam::993786693637:role/amplify-aws-amplify-react-dev-130719-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::993786693637:role/amplify-aws-amplify-react-dev-130719-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-aws-amplify-react-dev-130719-deployment",
+            "UnauthRoleName": "amplify-aws-amplify-react-dev-130719-unauthRole",
+            "StackName": "amplify-aws-amplify-react-dev-130719",
+            "StackId": "arn:aws:cloudformation:us-east-1:993786693637:stack/amplify-aws-amplify-react-dev-130719/7c4c8620-0b3a-11ea-86b0-1202dd259b0c"
+        },
+        "categories": {
+            "auth": {
+                "awsamplifyreact40ee5ff8": {}
+            }
+        }
+    },
+    "anthosa": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-aws-amplify-react-anthosa-25938-authRole",
+            "UnauthRoleArn": "arn:aws:iam::229261357468:role/amplify-aws-amplify-react-anthosa-25938-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::229261357468:role/amplify-aws-amplify-react-anthosa-25938-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-aws-amplify-react-anthosa-25938-deployment",
+            "UnauthRoleName": "amplify-aws-amplify-react-anthosa-25938-unauthRole",
+            "StackName": "amplify-aws-amplify-react-anthosa-25938",
+            "StackId": "arn:aws:cloudformation:us-east-1:229261357468:stack/amplify-aws-amplify-react-anthosa-25938/1773c5c0-0d41-11ea-8ef6-12709ad3d671"
+        },
+        "categories": {
+            "auth": {
+                "awsamplifyreact40ee5ff8": {}
+            }
+        }
+    }
+}
