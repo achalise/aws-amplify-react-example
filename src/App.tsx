@@ -5,6 +5,7 @@ import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import {withAuthenticator} from 'aws-amplify-react';
 import { Layout } from './components/layout/Layout';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 Amplify.configure(awsconfig);
 
