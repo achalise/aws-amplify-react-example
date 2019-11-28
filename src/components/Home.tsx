@@ -1,23 +1,35 @@
 import React, { CSSProperties } from 'react'
+import { Switch, Route } from 'react-router';
 
 export interface HomeProps {
 }
 export const Home: React.FC<HomeProps> = props => {
     return (
         <>
+        <Switch>
+          <Route exact path="/">
+          
+          </Route>
+          <Route path="/sectionOne">
+             <JoinUsSection></JoinUsSection>
+          </Route>
+          <Route path="/faq">
+            <FaqSection ></FaqSection>
+          </Route>
+        </Switch>
           {sectionOne()}
           {featureSection()}
           {applicationFeaturesSection()}
           {applicationFeaturesSectionTwo()}
           {reviewsSection()}
           {pricingSection()}
-          {faqSection()}
-          {joinUsSection()}
+          {/* {FaqSection()}
+          {JoinUsSection()} */}
         </>
     )
 }
 
-const joinUsSection = () => {
+export const JoinUsSection = () => {
   const joinUsStyle: CSSProperties = {
     backgroundImage: "url(assets/images/1900x1200_img_5.jpg)"
   }
@@ -65,7 +77,7 @@ const joinUsSection = () => {
   );
 }
 
-const faqSection = () => {
+export const FaqSection = () => {
   return (
     <section className="pb_section pb_slant-white" id="section-faq">
     <div className="container">
