@@ -8,12 +8,12 @@ export const Layout: React.FC<LayoutProps> = props => {
     return (
         <>
             <Navigation></Navigation>
-            <Home></Home>
+            <Home client={props.client}></Home>
             <Footer></Footer>
         </>
     )
 }
 
 export interface LayoutProps {
-
+    client: any
 }

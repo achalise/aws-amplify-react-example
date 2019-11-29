@@ -9,11 +9,16 @@ import { Layout } from './components/layout/Layout';
 
 //Amplify.configure(awsconfig);
 
-const App: React.FC = () => {
+const App: React.FC<AppProps> = (props: AppProps) => {
+  console.log(`Props to the app`, props);
   return (
-    <Layout></Layout>
+    <Layout client={props.client}></Layout>
   );
 }
 
 //export default withAuthenticator(App);
 export default App;
+
+export interface AppProps {
+  client: any
+}
