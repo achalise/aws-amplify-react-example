@@ -35,13 +35,12 @@ export const gqlExample = () => {
     <Query
       query={gql`
       {
-        hello {
-          hello
-        }
+        hello
       }
     `}
     >
       {({ loading, error, data }: any) => {
+        console.log(`in gql section`);
         if (loading) return <p>Loading...</p>;
         if (error) return <p>Error :(</p>;
         return <p>{data.hello}</p>
