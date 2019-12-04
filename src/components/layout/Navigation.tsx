@@ -5,7 +5,7 @@ import { Hidden } from "aws-amplify-react/lib-esm/AmplifyTheme";
 
 export const Navigation: React.FC<NavigationProps> = props => {
   let [show, setShow] = useState(false);
-  let transition = `transition: all 0.2s;`
+  let transition = {transition: 'all 0.2s'}
 
   const toggleMenu = () => {
     setShow(!show);
@@ -17,11 +17,11 @@ export const Navigation: React.FC<NavigationProps> = props => {
           <button onClick={toggleMenu} className="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span><i className="ion-navicon"></i></span>
           </button>
-          <div className={`collapse navbar-collapse transition ${show ? 'show': 'collapsing'}`} id="probootstrap-navbar">
+          <div className={`collapse navbar-collapse ${show ? 'show': 'collapsing'}`} style={transition} id="probootstrap-navbar">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item"><a className="nav-link" href="#section-home">Home</a></li>
               <li className="nav-item"><a className="nav-link" onClick={toggleMenu}>
-                <Link to="/faq">Register your vehicle</Link>
+                <Link to="/car-details">Register your vehicle</Link>
                 </a>
                 </li>              
               <li className="nav-item"><a className="nav-link" href="#section-features">Features</a></li>

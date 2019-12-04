@@ -7,6 +7,9 @@ const { buildSchema } = require('graphql');
 const schema  = buildSchema(`
   type Query {
     hello: String
+  },
+  type Mutation {
+    saveCarDetails(make: String, model: String, registrationNumber: String): String
   }
 `);
 
@@ -15,6 +18,10 @@ const root = {
   hello: () => {
     return 'Hello world!';
   },
+  saveCarDetails: (data: {make: string; model: string; registrationNumber: string;}) => {
+    console.log(`saving car details ${data.make}, ${data.model}, ${data.registrationNumber}`);
+    console.log(data);
+  }
 };
 
 

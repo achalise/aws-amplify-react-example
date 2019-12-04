@@ -2,6 +2,7 @@ import React, { CSSProperties } from 'react'
 import { Switch, Route } from 'react-router';
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import { CarDetails } from './car/CarDetails';
 export interface HomeProps {
   client: any
 }
@@ -9,21 +10,24 @@ export const Home: React.FC<HomeProps> = props => {
   return (
     <>
       {sectionOne()}
-      {featureSection()}
+      {/*{featureSection()}
       {applicationFeaturesSection()}
       {applicationFeaturesSectionTwo()}
       {reviewsSection()}
-      {pricingSection()}
-      {gqlExample()}
+  {pricingSection()} */}
+      {/* {gqlExample()} */}
       <Switch>
         <Route exact path="/">
-
+          <SignUp></SignUp>
         </Route>
         <Route path="/sectionOne">
           <JoinUsSection></JoinUsSection>
         </Route>
         <Route path="/faq">
           <FaqSection props={props}></FaqSection>
+        </Route>
+        <Route path="/carDetails">
+          <CarDetails></CarDetails>
         </Route>
       </Switch>
     </>
@@ -530,38 +534,42 @@ const sectionOne = () => {
           </div>
           <div className="col-md-1">
           </div>
-          <div className="col-md-5 relative align-self-center">
-
-            <form action="#" className="bg-white rounded pb_form_v1">
-              <h2 className="mb-4 mt-0 text-center">Sign Up for Free</h2>
-              <div className="form-group">
-                <input type="text" className="form-control pb_height-50 reverse" placeholder="Full name" />
-              </div>
-              <div className="form-group">
-                <input type="text" className="form-control pb_height-50 reverse" placeholder="Email" />
-              </div>
-              <div className="form-group">
-                <input type="text" className="form-control pb_height-50 reverse" placeholder="Email" />
-              </div>
-              <div className="form-group">
-                <div className="pb_select-wrap">
-                  <select className="form-control pb_height-50 reverse">
-                    <option value="" selected>Type</option>
-                    <option value="">Basic</option>
-                    <option value="">Business</option>
-                    <option value="">Free</option>
-                  </select>
-                </div>
-              </div>
-              <div className="form-group">
-                <input type="submit" className="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue" value="Register" />
-              </div>
-            </form>
-
-          </div>
         </div>
       </div>
     </section>
   );
 }
 
+const SignUp = () => {
+  return (
+    <div className="col-md-5 relative align-self-center">
+
+    <form action="#" className="bg-white rounded pb_form_v1">
+      <h2 className="mb-4 mt-0 text-center">Sign Up for Free</h2>
+      <div className="form-group">
+        <input type="text" className="form-control pb_height-50 reverse" placeholder="Full name" />
+      </div>
+      <div className="form-group">
+        <input type="text" className="form-control pb_height-50 reverse" placeholder="Email" />
+      </div>
+      <div className="form-group">
+        <input type="text" className="form-control pb_height-50 reverse" placeholder="Email" />
+      </div>
+      <div className="form-group">
+        <div className="pb_select-wrap">
+          <select className="form-control pb_height-50 reverse">
+            <option value="" selected>Type</option>
+            <option value="">Basic</option>
+            <option value="">Business</option>
+            <option value="">Free</option>
+          </select>
+        </div>
+      </div>
+      <div className="form-group">
+        <input type="submit" className="btn btn-primary btn-lg btn-block pb_btn-pill  btn-shadow-blue" value="Register" />
+      </div>
+    </form>
+
+  </div>
+  );
+}
