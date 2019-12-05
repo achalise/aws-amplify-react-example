@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 import { useCarDetailsFormValidator } from './carDetailsValidator';
 
+//just an example
 const SAVE_CAR_DETAILS = gql`
   mutation SaveCarDetails($make: String, $model: String, $registrationNumber: String) {
     saveCarDetails(make: $make, model: $model, registrationNumber: $registrationNumber)
