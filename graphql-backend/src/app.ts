@@ -18,7 +18,7 @@ const db = {
 const schema  = buildSchema(`
   type Query {
     hello: String,
-    getCars: [Car]    
+    getCars(make: String): [Car]    
   },
   type Mutation {
     saveCarDetails(make: String, model: String, registrationNumber: String): String
@@ -36,8 +36,9 @@ const root = {
   hello: () => {
     return 'Hello world!';
   },
-  getCars: () => {
-    return [...db.cars];
+  getCars: ({make} : {make: string}) => {
+    console.log(`Retrievingcars for make ${make}`);
+    return [...db.cars].filter(c => make ? c.make === make : true);
   },
   saveCarDetails: (data: {make: string; model: string; registrationNumber: string;}) => {
     console.log(`saving car details ${data.make}, ${data.model}, ${data.registrationNumber}`);

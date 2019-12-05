@@ -17,23 +17,22 @@ export const Home: React.FC<HomeProps> = props => {
       {reviewsSection()}
   {pricingSection()} */}
       {/* {gqlExample()} */}
-      <BrowserRouter>
+
         <Route exact path="/">
           <SignUp></SignUp>
         </Route>
         <Route path="/sectionOne">
           <JoinUsSection></JoinUsSection>
         </Route>
-        <Route path="/faq">
+        <Route exact path="/faq">
           <FaqSection props={props}></FaqSection>
         </Route>
-        <Route path="/carDetails">
+        <Route exact path="/carDetails">
           <CarDetails props={props}></CarDetails>
         </Route>
         <Route path="/cars">
           <CarList></CarList>
         </Route>
-      </BrowserRouter>
     </>
   )
 }
