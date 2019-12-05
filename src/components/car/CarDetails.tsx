@@ -2,8 +2,8 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 import { useCarDetailsFormValidator } from './carDetailsValidator';
+import { withRouter } from 'react-router';
 
-//just an example
 const SAVE_CAR_DETAILS = gql`
   mutation SaveCarDetails($make: String, $model: String, $registrationNumber: String) {
     saveCarDetails(make: $make, model: $model, registrationNumber: $registrationNumber)
@@ -16,12 +16,16 @@ const initialState: CarProperties = {
   registrationNumber: ''
 };
 
-export const CarDetails: React.FC<CarDetailsProps> = (props: CarDetailsProps) => {
+const CarDetails: React.FC<any> = (props: any) => {
   const [saveCar, { data }] = useMutation(SAVE_CAR_DETAILS);
   const [values, handleChange] = useCarDetailsFormValidator(initialState, () => false);
   const onClick = () => {
     console.log(`submitting values `, values);
-    saveCar({ variables: { make: values.make, model: values.model, rgistrationNumber: values.rgistrationNumber } }).catch(e => console.log(`Error while saving`, e));
+    saveCar({ variables: { make: values.make, model: values.model, registrationNumber: values.registrationNumber } })
+    .then(() => {
+        props.history.push('/cars')
+    })
+    .catch(e => console.log(`Error while saving`, e));
   }
   return (
     <div className="row align-items-center justify-content-center">
@@ -61,9 +65,11 @@ export const CarDetails: React.FC<CarDetailsProps> = (props: CarDetailsProps) =>
   );
 }
 
+export default withRouter(CarDetails);
 
 export interface CarDetailsProps {
-
+    props: any;
+    history?: any
 }
 
 export interface CarProperties {

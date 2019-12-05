@@ -1,8 +1,9 @@
 import React, { CSSProperties } from 'react'
-import { Switch, Route } from 'react-router';
+import {BrowserRouter, Route} from 'react-router-dom';
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import { CarDetails } from './car/CarDetails';
+import CarDetails from './car/CarDetails';
+import { CarList } from './car/CarList';
 export interface HomeProps {
   client: any
 }
@@ -16,7 +17,7 @@ export const Home: React.FC<HomeProps> = props => {
       {reviewsSection()}
   {pricingSection()} */}
       {/* {gqlExample()} */}
-      <Switch>
+      <BrowserRouter>
         <Route exact path="/">
           <SignUp></SignUp>
         </Route>
@@ -27,9 +28,12 @@ export const Home: React.FC<HomeProps> = props => {
           <FaqSection props={props}></FaqSection>
         </Route>
         <Route path="/carDetails">
-          <CarDetails></CarDetails>
+          <CarDetails props={props}></CarDetails>
         </Route>
-      </Switch>
+        <Route path="/cars">
+          <CarList></CarList>
+        </Route>
+      </BrowserRouter>
     </>
   )
 }
