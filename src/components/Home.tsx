@@ -30,7 +30,7 @@ export const Home: React.FC<HomeProps> = props => {
         <Route exact path="/carDetails">
           <CarDetails props={props}></CarDetails>
         </Route>
-        <Route path="/cars">
+        <Route exact path="/cars">
           <CarList></CarList>
         </Route>
     </>

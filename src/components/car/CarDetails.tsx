@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 import { useCarDetailsFormValidator } from './carDetailsValidator';
-import { withRouter } from 'react-router';
+import { withRouter, Redirect } from 'react-router';
 
 const SAVE_CAR_DETAILS = gql`
   mutation SaveCarDetails($make: String, $model: String, $registrationNumber: String) {
@@ -19,13 +19,19 @@ const initialState: CarProperties = {
 const CarDetails: React.FC<any> = (props: any) => {
   const [saveCar, { data }] = useMutation(SAVE_CAR_DETAILS);
   const [values, handleChange] = useCarDetailsFormValidator(initialState, () => false);
+  const [refresh, setRefresh] = useState(false);
   const onClick = () => {
     console.log(`submitting values `, values);
     saveCar({ variables: { make: values.make, model: values.model, registrationNumber: values.registrationNumber } })
     .then(() => {
-        props.history.push('/cars')
+        setRefresh(true);
     })
     .catch(e => console.log(`Error while saving`, e));
+  }
+  if(refresh) {
+      return (
+          <Redirect to="/cars"></Redirect>
+      )
   }
   return (
     <div className="row align-items-center justify-content-center">
