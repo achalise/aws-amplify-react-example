@@ -38,6 +38,7 @@ const root = {
   },
   getCars: ({make} : {make: string}) => {
     console.log(`Retrievingcars for make ${make}`);
+    console.log(db.cars);
     return [...db.cars].filter(c => make ? c.make === make : true);
   },
   saveCarDetails: (data: {make: string; model: string; registrationNumber: string;}) => {
